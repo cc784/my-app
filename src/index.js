@@ -4,19 +4,22 @@ import './index.css';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 
-//函數式組件
-function Clock(props) {
-  return (
-    <div>
-      <h1>現在時間是{props.date.toLocaleTimeString()}</h1>
-      <h2>在這是副標題</h2>
-    </div>
-  )
-}
+let element4 =(
+  <div>
+    <span>橫著躺</span>
+    <span>竪著躺</span>
+  </div>
+)
 
-function run(){
-  ReactDOM.render(
-    <Clock date={new Date()} />,document.querySelector('#root')
-  )
-}
-setInterval(run, 1000);
+let man = '發熱'
+let element3 =(
+  <div>
+    <h1>今天是否隔離</h1>
+    <h2>{ man == '發熱'? <button>隔離</button>:element4 }</h2>
+  </div>
+)
+
+ReactDOM.render(
+  element3,
+  document.getElementById('root')
+)
