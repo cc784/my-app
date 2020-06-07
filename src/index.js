@@ -1,38 +1,18 @@
-import React ,{ Fragment } from 'react';
+import React ,{ Fragment, Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
-// JSX嵌套JSX  JSX循环
+// 组件
 
-const parentProps ={
-  className: "redCls",
-  "data-index":100
+class Test extends Component{
+  render(){
+    return(
+      <div>
+        hello
+      </div>
+    )
+  }
 }
-
-const Test =() =>{
-  return React.createElement(
-    "div",
-    parentProps,
-    [
-      React.createElement(
-        "span",
-        null,
-        "你们好呀"
-      ),
-      React.createElement(
-        "h1",
-        null,
-        "你们好呀"
-      ),
-      React.createElement(
-        "h2",
-        null,
-        "这就是jsx语法糖"
-      ),
-    ]
-  )
-}
-
-ReactDOM.render(<Test/>,document.getElementById('root'))
+ReactDOM.render(<Test/>, document.getElementById('root'))
