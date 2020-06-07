@@ -4,15 +4,12 @@ import './index.css';
 
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
-// 组件
+// 函数式组件
 
-class Test extends Component{
-  render(){
-    return(
-      <div>
-        hello
-      </div>
-    )
-  }
+const Test = () =>{
+  return(
+    <div>这个就是一个简单的函数式组件</div>
+  )
 }
+
 ReactDOM.render(<Test/>, document.getElementById('root'))
