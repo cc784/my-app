@@ -8,7 +8,11 @@ import PropTypes from 'prop-types';
 //  props默认值
 // 声明一个类组件
 let HomeNav = (props) => {
-  return <h1> 导航为 {props.color} 数量为 {props.nums}  </h1>
+  return  <div>
+  <div>标题</div>
+  <div>{props.children}</div>
+</div>
+  
 }
 // 2  指定要求接收的数据格式
 HomeNav.propTypes ={
@@ -27,6 +31,8 @@ class Home extends Component {
     return (
       <div>
         <HomeNav {...this.state}></HomeNav>
+         {/* 这里放动态插入的内容 */}
+         <div>小标题你 这是一个 插槽</div>
       </div>
     )
   }
