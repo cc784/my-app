@@ -3,15 +3,28 @@ import ReactDOM from 'react-dom';
 
 
 const GreenBtn = (props) =>{
+  // 子组件发出事件
   setInterval(()=>{
     props.onChangeColor("green");
-  },1000)
+  },4000)
   return(
     <button>绿色</button>
 
   )
 }
 
+// 子组件B
+const Blue =(props)=>{
+  const handleClick = () => {
+    props.onChangeColor("red");
+  }
+  return(
+    <div>
+      蓝色
+      <button style={{ color: props.color }} onClick={handleClick}>蓝色</button>
+      </div>
+  )
+}
 class App extends Component{
   state ={
     color:'red'
@@ -25,7 +38,8 @@ class App extends Component{
   render(){
     return(
       <div style={{ backgroundColor: this.state.color }}>
-  <GreenBtn onChangeColor={this.changeColor}></GreenBtn>
+    <GreenBtn onChangeColor={this.changeColor}></GreenBtn>
+    <Blue onChangeColor={this.changeColor} color={this.state.color}></Blue>
       </div>
     )
   }
