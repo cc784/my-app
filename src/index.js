@@ -1,37 +1,34 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class HomeTop extends Component{
-  render(){
-    return(
-      <div>
-          <h1>屋顶的颜色是 {this.props.acolor} 尺寸 {this.props.asize}</h1>
-      </div>
-    )
-  }
-}
-function HomeTop2(props){
+
+const GreenBtn = (props) =>{
+  setInterval(()=>{
+    props.onChangeColor("green");
+  },1000)
   return(
-    <h1>屋顶的颜色是 {props.color} 尺寸 {props.size}</h1>
+    <button>绿色</button>
 
   )
 }
 
-class Home extends Component{
+class App extends Component{
   state ={
-    color:'blue',
-    size:100
+    color:'red'
+  }
+  // 监听事件触发
+  changeColor = (color) =>{
+    this.setState({
+      color
+    })
   }
   render(){
     return(
-      <div>
-        <HomeTop acolor={this.state.color} asize={this.state.size}></HomeTop>
-        <HomeTop2 {...this.state}>
-        <div>小标题</div>
-        </HomeTop2>
-
+      <div style={{ backgroundColor: this.state.color }}>
+  <GreenBtn onChangeColor={this.changeColor}></GreenBtn>
       </div>
     )
   }
 }
-ReactDOM.render(<Home/>,document.getElementById('root'))
+
+ReactDOM.render(<App/>,document.getElementById('root'))
