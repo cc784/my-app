@@ -7,6 +7,10 @@ import './index.css';
 
 // 声明一个类组件
 class HomeTop extends Component { 
+  constructor(props) {
+    super(props);
+	console.log(props);
+  }
   render() {
     return (
       <h1>屋顶的颜色是 {this.props.acolor} 尺寸 {this.props.asize}</h1>
