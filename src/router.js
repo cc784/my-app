@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // 1 引入 路由 
-import { HashRouter , Route, Link } from "react-router-dom";
+import { HashRouter , Route, Link, Switch,Redirect} from "react-router-dom";
 
 //
 class App extends Component{
@@ -14,13 +14,18 @@ class App extends Component{
           <Link to="/">首页</Link>
           <Link to="/user">用户</Link>
           <Link to="/about">关于</Link>
+          <Link to="/users/:id/">UserDetail</Link>
+
         </nav>
         {/* 4.路由内容 */}
-        <section>
+        <Switch>
+        <Route path="/users/:id/"  component={UserDetail} />
           <Route path="/"  exact component={Home}></Route>
           <Route path="/user" component={User}></Route>
           <Route path="/about" component={About}></Route>
-        </section>
+          <Route path="/404/" component={PageNotFound} />
+          <Redirect to="/404/" ></Redirect>
+          </Switch>
         </HashRouter>
       </div>
     )
@@ -28,8 +33,12 @@ class App extends Component{
 }
 // 5.页面内容
 const Home =() =><div>首页的内容</div>
+const UserDetail =() =><div>首页的内容4</div>
 const User =() =><div>首页的内容2</div>
 const About =() =><div>首页的内容3</div>
+function PageNotFound() {
+  return <h2>404啦</h2>
+}
 // function Home(){
 //   return<h1>Home</h1>
 // }

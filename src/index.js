@@ -1,6 +1,6 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
-import Rout from '../src/router'
+import Rout from '../src/router3'
 
 const Header = () => {
   return (
