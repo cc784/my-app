@@ -10,6 +10,12 @@ class HomeTop extends Component{
     )
   }
 }
+function HomeTop2(props){
+  return(
+    <h1>屋顶的颜色是 {props.color} 尺寸 {props.size}</h1>
+
+  )
+}
 
 class Home extends Component{
   state ={
@@ -20,7 +26,9 @@ class Home extends Component{
     return(
       <div>
         <HomeTop acolor={this.state.color} asize={this.state.size}></HomeTop>
-        {/* <HomeTop {...this.state}></HomeTop> */}
+        <HomeTop2 {...this.state}>
+        <div>小标题</div>
+        </HomeTop2>
 
       </div>
     )
