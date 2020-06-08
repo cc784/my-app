@@ -1,6 +1,6 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
-
+import Rout from '../src/router'
 
 const Header = () => {
   return (
@@ -27,4 +27,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+ReactDOM.render(<Rout/>,document.getElementById('root'))
