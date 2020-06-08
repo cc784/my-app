@@ -1,50 +1,35 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
+// 1 引入 prop-types
+import PropTypes from 'prop-types'; 
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
 //  props默认值
 // 声明一个类组件
-class HomeTop extends Component { 
-  constructor(props) {
-    super(props);
-	console.log(props);
+let HomeNav = (props) => {
+  return <h1> 导航为 {props.color} 数量为 {props.nums}  </h1>
+}
+// 2  指定要求接收的数据格式
+HomeNav.propTypes ={
+  color:PropTypes.string,
+  nums:PropTypes.number
+}
+
+
+
+class Home extends Component {
+  state = {
+    color: "blue",
+    nums:100
   }
   render() {
     return (
-     
-     <div>
-        <h1>屋顶的颜色是 {this.props.acolor} 尺寸 {this.props.asize}</h1>
-        
-     </div>
-    )
-  }
-}
-// 函数式组件
-const HomeFooter =(props) =>{
-return <div>
-  <h1> 屋底的颜色是{props.bcolor} 尺寸{props.bsize}</h1>
-  <h2>{props.null_}</h2>
-</div>
-}
-// 指定一个默认属性
-HomeFooter.defaultProps = {
-  null_: "yellow"
-}
-// 声明父组件
-class Person extends Component{
-  state ={
-    color:"blue",
-    size:100
-  }
-  render(){
-    return(
       <div>
-        <HomeTop acolor={this.state.color} asize={this.state.size}></HomeTop>
-        <HomeFooter bcolor={this.state.color} bsize={this.state.size}></HomeFooter>
+        <HomeNav {...this.state}></HomeNav>
       </div>
     )
   }
 }
-ReactDOM.render(<Person/>, document.getElementById('root'))
+
+ReactDOM.render(<Home />, document.getElementById('root'))
