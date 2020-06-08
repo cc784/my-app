@@ -4,44 +4,32 @@ import './index.css';
 
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
-// state的赋值
-// state的赋值方式通过 this.setState方法 来实现
 
-// 需要注意的是， 不能 使用 this.state.date= 100 直接修改
-
- 
-class Person extends Component{
-  constructor(){
-    super();
-    this.state= {
-      date:12313,
-      msg:'来日方长'
-    }
-    
+// 声明一个类组件
+class HomeTop extends Component { 
+  render() {
+    return (
+      <h1>屋顶的颜色是 {this.props.acolor} 尺寸 {this.props.asize}</h1>
+    )
   }
-  
-// 2.事件声明
-handleClick =() =>{
-  // 获取
-  let {date} =this.state;
-  let {msg} =this.state;
-
-  // 修改
-  this.setState({
-    date:date + 1000,
-    msg:'已修改'+1
-  })
+}
+// 函数式组件
+const HomeFooter =(props) =>{
+return <h1> 屋底的颜色是{props.bcolor} 尺寸{props.bsize}</h1>
+}
+// 声明父组件
+class Person extends Component{
+  state ={
+    color:"blue",
+    size:100
   }
   render(){
     return(
-      <div >
-        <button onClick={this.handleClick}>按钮</button>
-        <h1>{this.state.date}</h1>
-        <h1>{this.state.msg}</h1>
-        
+      <div>
+        <HomeTop acolor={this.state.color} asize={this.state.size}></HomeTop>
+        <HomeFooter bcolor={this.state.color} bsize={this.state.size}></HomeFooter>
       </div>
     )
   }
 }
-
 ReactDOM.render(<Person/>, document.getElementById('root'))
