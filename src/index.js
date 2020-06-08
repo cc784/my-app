@@ -1,36 +1,29 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      inpValue:'',
-      isChecked:''
-    }
-    this.inp =React.createRef();
-  }
-  handleClick(){
-    this.inp.current.focus();
-  }
-  handleChangeValue(e){
-    this.setState({
-      inpValue: e.currentTarget.value
-    })
-  }
- 
+class HomeTop extends Component{
   render(){
     return(
       <div>
-        <input type='text' ref={this.inp}></input>
-        <button onClick={this.handleClick.bind(this)}>设置获取焦点</button>
-        <input type='text' value={this.state.inpValue} onChange={this.handleChangeValue.bind(this)}></input>
-        {this.state.inpValue}
-    
+          <h1>屋顶的颜色是 {this.props.acolor} 尺寸 {this.props.asize}</h1>
       </div>
     )
   }
 }
 
-ReactDOM.render(<App/> , document.getElementById('root'))
+class Home extends Component{
+  state ={
+    color:'blue',
+    size:100
+  }
+  render(){
+    return(
+      <div>
+        <HomeTop acolor={this.state.color} asize={this.state.size}></HomeTop>
+        {/* <HomeTop {...this.state}></HomeTop> */}
+
+      </div>
+    )
+  }
+}
+ReactDOM.render(<Home/>,document.getElementById('root'))
