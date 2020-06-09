@@ -1,30 +1,12 @@
 import React ,{  Component } from 'react';
 import ReactDOM from 'react-dom';
 import Rout from '../src/router2'
+import App from '../src/App'
 
-const Header = () => {
-  return (
-    <div>
-      <h1 className="hh11">我没有变颜色哦</h1>
-    </div>
-  )
-}
+// 1 引入仓库
+import store from "./store";
+// 2 借助 react-redux中的一个组件来实现传递
+import { Provider } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <Header></Header>
-      <h1 className="hh11">我变颜色啦</h1>
-      <style jsx>{
-        `
-       .hh11{
-         background-color:red;
-       }
-       `
-      }
-      </style>
-    </div>
-  );
-}
-
-ReactDOM.render(<Rout/>,document.getElementById('root'))
+// ReactDOM.render(<Rout/>,document.getElementById('root'))
+ReactDOM.render(<Provider store={store} ><App /></Provider>, document.getElementById('root'));

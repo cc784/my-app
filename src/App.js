@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Btn1 from "./component/Btn1"
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div>
         hello world
       </div>
+      <Btn1></Btn1>
     </div>
   );
 }
