@@ -1,16 +1,6 @@
-// 1 自己定义数据
-const defaultState = {
-    num: 10000,
-    date:1234567
-  }
-  
-  // 2 导出去 函数 固定 
-  export default (state=defaultState,action)=>{
-    // state 做一个深拷贝
-    let newState =JSON.parse(JSON.stringify(state))
-    if(action.type ==='add'){
-      newState.num += action.unit;
-      return newState;
-    }
-  return state;
-  }
+// 1 引入其他小的管理员
+import cartReducer from "./cartReducer";
+// 2 引入管理员合并器 合并工具 合并函数
+import { combineReducers } from "redux";
+// 3 合并并导出
+export default combineReducers({cartReducer})

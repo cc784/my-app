@@ -19,8 +19,8 @@ class Btn1 extends Component{
 // 
 const mapStateToProps =(state) =>{
     return{
-        btnNum:state.num ,
-        btnDate:state.date
+        btnNum:state.cartReducer.num ,
+        btnDate:state.cartReducer.date
     }
 }
 
