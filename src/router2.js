@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./App.css";
 
-import { HashRouter as Router, Link, Route } from "react-router-dom";
+import { HashRouter as Router, Link, Route,Redirect ,Switch} from "react-router-dom";
 
 
 function App() {
@@ -14,9 +14,13 @@ function App() {
           <Link to="/about" >关于</Link>
         </nav>
         <section>
+        <Switch>
           <Route exact component={Home} path="/" ></Route>
           <Route  component={User2} path="/user2" ></Route>
           <Route exact component={About} path="/about" ></Route>
+          <Route exact component={PageNotFound} path="/404" ></Route>
+          <Redirect to="/404" ></Redirect> 
+          </Switch>
         </section>
       </Router>
     </div>
@@ -59,6 +63,9 @@ const Home = () => <div>首页的内容</div>
   }
   const UserDetail=(props)=>{
   return <div>{props.match.params.id}用户的详情</div>
+  }
+  const PageNotFound = () =>{
+    return <div> 找不到页面</div>
   }
 // const User = () => <div>
 //   <h2>用户的内容</h2>
