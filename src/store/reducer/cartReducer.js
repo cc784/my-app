@@ -11,6 +11,9 @@ const defaultState = {
     if(action.type ==='add'){
       newState.num += action.unit;
       return newState;
+    }else if(action.type ==='init'){
+      newState.num = action.unit;
+      return newState;
     }
   return state;
   }
