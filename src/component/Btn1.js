@@ -11,7 +11,7 @@ class Btn1 extends Component{
        
         return(
            <div>
-                <button style={{backgroundColor:"red" }}  onClick={this.handleClick}>Btn1</button>
+                {/* <button style={{backgroundColor:"red" }}  onClick={this.handleClick}>Btn1</button> */}
                 <button onClick={()=>this.handleClick(1)} >Btn1-{this.props.btnNum}</button>
                {this.props.btnNum}
            </div>
